@@ -55,6 +55,7 @@ export default function Header() {
           <a 
             href="/" 
             className="group flex items-center space-x-3 transition-transform duration-300 hover:scale-105"
+            
           >
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-rose-400 to-pink-500 rounded-xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
@@ -76,6 +77,8 @@ export default function Header() {
               <a
                 key={link.href}
                 href={link.href}
+                 data-aos="fade-down"
+                data-aos-delay={index * 100}
                 className="relative px-4 py-2 text-gray-700 font-medium transition-all duration-300 hover:text-rose-600 group"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
@@ -85,7 +88,7 @@ export default function Header() {
               </a>
             ))}
             
-            <div className="ml-6 pl-6 border-l border-gray-200">
+            <div className="ml-6 pl-6 border-l border-gray-200" data-aos="zoom-in" data-aos-delay="400">
               <button className="group relative overflow-hidden bg-gradient-to-r from-rose-500 via-pink-500 to-rose-600 text-white px-6 py-2.5 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
                 <div className="absolute inset-0 bg-gradient-to-r from-rose-600 via-pink-600 to-rose-700 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
                 <span className="relative flex items-center space-x-2">
