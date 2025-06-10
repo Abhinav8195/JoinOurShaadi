@@ -6,12 +6,17 @@ import w5 from '../assets/w5.jpg';
 import w2 from '../assets/w2.jpg';
 import w3 from '../assets/w6.jpg';
 import w4 from '../assets/w4.jpeg';
+import w7 from '../assets/w7.jpg';
+import w8 from '../assets/w8.webp';
 
 const weddingImages = [
- { src: w5, label: 'Mehendi (Henna Ceremony)' },
-  { src: w2, label: 'Haldi (Turmeric Ritual)' },
-  { src: w3, label: 'Reception Celebration' },
-  { src: w4, label: 'Wedding Night (Shaadi ki Raat)' },
+    { src: w3, label: 'Reception Celebration' },
+    { src: w5, label: 'Mehendi (Henna Ceremony)' },
+    { src: w2, label: 'Haldi (Turmeric Ritual)' },
+    { src: w8, label: 'DJ Night' },
+    { src: w4, label: 'Varmala Ceremony (Garland Exchange)' },
+    { src: w7, label: 'Wedding Night (Shaadi ki Raat)' },
+  
 ];
 
 const Glimpse = () => {
