@@ -10,13 +10,12 @@ import w7 from '../assets/w7.jpg';
 import w8 from '../assets/w8.webp';
 
 const weddingImages = [
-    { src: w3, label: 'Reception Celebration' },
-    { src: w5, label: 'Mehendi (Henna Ceremony)' },
-    { src: w2, label: 'Haldi (Turmeric Ritual)' },
-    { src: w8, label: 'DJ Night' },
-    { src: w4, label: 'Varmala Ceremony (Garland Exchange)' },
-    { src: w7, label: 'Wedding Night (Shaadi ki Raat)' },
-  
+  { src: w3, label: 'Reception Celebration' },
+  { src: w5, label: 'Mehendi (Henna Ceremony)' },
+  { src: w2, label: 'Haldi (Turmeric Ritual)' },
+  { src: w8, label: 'DJ Night' },
+  { src: w4, label: 'Varmala Ceremony (Garland Exchange)' },
+  { src: w7, label: 'Wedding Night (Shaadi ki Raat)' },
 ];
 
 const Glimpse = () => {
@@ -49,8 +48,13 @@ const Glimpse = () => {
               alt={`Indian wedding ${index + 1}`}
               className="w-full h-72 object-cover transition-transform duration-300 group-hover:scale-105"
             />
-            {/* Glass Info Box */}
-            <div className="absolute bottom-0 left-0 w-full px-4 py-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-md bg-white/30 border-t border-white/40 rounded-b-3xl">
+
+            {/* Glass Info Box: Always visible on mobile, hover only on larger screens */}
+            <div className="absolute bottom-0 left-0 w-full px-4 py-3 
+              opacity-100 sm:opacity-0 sm:group-hover:opacity-100 
+              transition-opacity duration-300 
+              backdrop-blur-md bg-white/30 border-t border-white/40 rounded-b-3xl"
+            >
               <p className="text-white text-lg font-semibold drop-shadow">
                 {image.label}
               </p>
