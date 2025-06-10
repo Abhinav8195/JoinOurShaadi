@@ -1,5 +1,6 @@
 import React from 'react';
 import bgImage from '../assets/i3.jpeg';
+import Glimpse from '../components/Glimpse';
 
 export default function Home() {
   return (
@@ -31,25 +32,27 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 gap-10 text-lg text-gray-700">
             <div className="space-y-6">
-              <p>
+              <p className='font-bold'>
                 For the true traveler — one who seeks meaning beyond landmarks and souvenirs — there’s no experience more immersive than a traditional Indian wedding.
               </p>
-              <p>
+              <p className='font-bold' >
                 Here, the soul of a culture unfolds in real time — vibrant rituals, joyful chaos, sacred traditions, and heartfelt moments woven into a celebration like no other.
               </p>
             </div>
 
             <div className="space-y-6">
-              <p>
+              <p className='font-bold'>
                 Thanks to the warmth of Indian couples who open their hearts and guest lists to the world, you’re not just invited — you’re welcomed as family.
               </p>
-              <p>
+              <p className='font-bold'>
                 Adorn yourself in traditional attire, savor exquisite regional flavors, sway to hypnotic rhythms, and take part in ceremonies passed down through generations.
               </p>
             </div>
           </div>
         </div>
       </div>
+
+      <Glimpse/>
     </div>
   );
 }
