@@ -49,6 +49,7 @@ export default function Footer() {
         { icon: Twitter, href: '#', label: 'Twitter' },
         { icon: Youtube, href: '#', label: 'YouTube' }
     ];
+      const currentYear = new Date().getFullYear();
 
     return (
         <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
@@ -162,7 +163,7 @@ export default function Footer() {
                 <div className="max-w-7xl mx-auto px-4 py-6">
                     <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
                         <div className="text-gray-400 text-sm">
-                            © 2025 Join Our Shaadi. All rights reserved. Made with <Heart className="h-4 w-4 inline text-rose-400" fill="currentColor" /> for love.
+                            © {currentYear} Join Our Shaadi. All rights reserved. Made with <Heart className="h-4 w-4 inline text-rose-400" fill="currentColor" /> for love.
                         </div>
                         <div className="flex flex-wrap justify-center sm:justify-end gap-4 text-sm">
                             <a href="#" className="text-gray-400 hover:text-rose-400 transition-colors duration-300 no-underline" style={{ color: 'inherit' }}>Privacy Policy</a>

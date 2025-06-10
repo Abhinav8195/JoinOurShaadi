@@ -1,6 +1,8 @@
 import React from 'react';
 import bgImage from '../assets/i3.jpeg';
 import Glimpse from '../components/Glimpse';
+import Weddings from '../components/Weddings';
+import MoreAbout from '../components/MoreAbout';
 
 export default function Home() {
   return (
@@ -53,6 +55,8 @@ export default function Home() {
       </div>
 
       <Glimpse/>
+      <Weddings/>
+      <MoreAbout/>
     </div>
   );
 }

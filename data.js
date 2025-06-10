@@ -1,0 +1,58 @@
+export const weddingData = [
+  {
+    id: 1,
+    couple: 'Aarav & Meera',
+    location: 'Jaipur, Rajasthan',
+    date: 'June 20, 2025',
+    image: 'https://onehorizonproductions.com/wp-content/uploads/2023/05/OHP-03325-scaled.webp',
+  },
+  {
+    id: 2,
+    couple: 'Rohan & Alisha',
+    location: 'Udaipur, Rajasthan',
+    date: 'July 15, 2025',
+    image: 'https://dstudios.in/wp-content/uploads/2024/10/beach-pre-wedding-shoot-sushmitha-neeraj-683x1024.webp',
+  },
+  {
+    id: 3,
+    couple: 'Karan & Simran',
+    location: 'Goa, India',
+    date: 'August 5, 2025',
+    image: 'https://i.pinimg.com/736x/e5/50/ee/e550eeee42134ee9e72b9179d044e1a5.jpg',
+  },
+  {
+    id: 4,
+    couple: 'Dev & Priya',
+    location: 'Shimla, Himachal',
+    date: 'September 1, 2025',
+    image: 'https://www.pixelworks.in/wp-content/uploads/2018/01/Night-pre-wedding-shoot-13.jpg',
+  },
+  {
+    id: 5,
+    couple: 'Vikram & Neha',
+    location: 'Delhi, India',
+    date: 'October 10, 2025',
+    image: 'https://i.pinimg.com/736x/eb/a5/0a/eba50a695bec5a6cfe7704816edb0c79.jpg',
+  },
+  {
+    id: 6,
+    couple: 'Siddharth & Ananya',
+    location: 'Mumbai, India',
+    date: 'November 11, 2025',
+    image: 'https://cdn0.weddingwire.in/article/9083/original/1280/jpg/123809-weddingnama-perks.jpeg',
+  },
+  {
+    id: 7,
+    couple: 'Yash & Kavya',
+    location: 'Kerala, India',
+    date: 'December 24, 2025',
+    image: 'https://www.atlhea.in/wp-content/uploads/2022/05/pose-for-pre-wedding-shoot.jpg',
+  },
+  {
+    id: 8,
+    couple: 'Arjun & Tanya',
+    location: 'Manali, Himachal',
+    date: 'January 5, 2026',
+    image: 'https://lh7-rt.googleusercontent.com/docsz/AD_4nXdxtCcDTnqU3HoFx2kpnsNpmUS2221_CV1SaEjTFb6krKOCvrX2-sHUqpnDuvdycuLRndyjlZcF6kqCRx5acdknNpnQAl2k1T07PuXkM6FtSIJ4PXcDcmQ24fzOq6rzHfwUXk_wKm1AwsCPjNqgRSHIHg?key=-T2StEi0cHiRoLCno7zsDA',
+  },
+];
