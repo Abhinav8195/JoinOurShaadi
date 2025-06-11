@@ -89,7 +89,7 @@ const Weddings = ({ title, subtitle, button }) => {
                 <p className="text-sm text-gray-600 mt-1">{wedding.location}</p>
                 <p className="text-sm text-gray-500">{wedding.date}</p>
 
-                <button className="focus:outline-none mt-5 flex items-center justify-center gap-2 w-full bg-gradient-to-r from-[#AD4379] to-[#E05297] text-white font-semibold px-5 py-2.5 rounded-full shadow-md transition duration-300 hover:shadow-xl">
+                <button  onClick={() => navigate('/details', { state: { wedding } })} className="focus:outline-none mt-5 flex items-center justify-center gap-2 w-full bg-gradient-to-r from-[#AD4379] to-[#E05297] text-white font-semibold px-5 py-2.5 rounded-full shadow-md transition duration-300 hover:shadow-xl">
                   <FaHeart className="text-sm" />
                   Join Wedding
                 </button>
