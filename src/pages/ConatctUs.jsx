@@ -43,12 +43,16 @@ const ConatctUs = () => {
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
           Have questions, suggestions, or just want to connect? We’re always here to help you join or host unforgettable wedding experiences.
         </p>
-        <a
-          href="mailto:contact@joinoursaadi.com"
-          className="mt-6 inline-block text-[#AD4379] font-medium underline hover:text-[#E05297] transition"
-        >
-          contact@joinoursaadi.com
-        </a>
+      <div className="mt-6 flex justify-center">
+  <a
+    href="mailto:contact@joinoursaadi.com"
+    className="backdrop-blur-md bg-white/40 border border-rose-200 text-rose-500 hover:bg-rose-100/70 hover:text-rose-600 transition-all duration-300 px-6 py-2.5 rounded-full shadow-lg font-medium text-sm sm:text-base tracking-wide"
+  >
+    📧 contact@joinoursaadi.com
+  </a>
+</div>
+
+
 
       </div>
 
