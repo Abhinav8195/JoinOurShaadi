@@ -55,6 +55,51 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+  .react-datepicker {
+  font-family: 'Inter', sans-serif;
+  border-radius: 1rem;
+  border: 1px solid #E05297;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  background: #fff0f5; /* soft pink */
+  overflow: hidden;
+}
+
+.react-datepicker__header {
+  background-color: #ffe4ec;
+  border-bottom: 1px solid #E05297;
+  padding-top: 1rem;
+}
+
+.react-datepicker__day-name,
+.react-datepicker__day {
+  color: #AD4379;
+  font-weight: 500;
+  margin: 0.3rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  line-height: 2.2rem;
+  border-radius: 9999px;
+  transition: background-color 0.3s ease;
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected {
+  background: linear-gradient(to right, #AD4379, #E05297);
+  color: white;
+}
+
+.react-datepicker__day:hover {
+  background-color: #ffe4ec;
+  color: #AD4379;
+}
+
+.react-datepicker__today-button {
+  background-color: #E05297;
+  color: white;
+  border-top: 1px solid #E05297;
+}
+
+
 
 @media (prefers-color-scheme: light) {
   :root {

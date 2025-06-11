@@ -55,7 +55,7 @@ export default function Home() {
       </div>
 
       <Glimpse/>
-      <Weddings/>
+      <Weddings title={'Featured Weddings'} button={true} subtitle={'Which wedding would you like to join?'}/>
       <MoreAbout/>
     </div>
   );

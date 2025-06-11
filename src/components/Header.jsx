@@ -3,6 +3,7 @@
   import logo from '../assets/arch.png';
   import AOS from 'aos';
   import 'aos/dist/aos.css';
+import { NavLink } from 'react-router-dom';
 
   export default function Header() {
     const [open, setOpen] = useState(false);
@@ -35,10 +36,10 @@
     }, []);
 
     const navLinks = [
-      { href: '#Weddings', label: 'Weddings' },
-      { href: '#FAQ', label: 'FAQ' },
-      { href: '#Contact', label: 'Contact Us' },
-      { href: '#Login', label: 'Login' }
+      { to: '/weddings', label: 'Weddings' },
+      { to: '/faq', label: 'FAQ' },
+      { to: '/contact', label: 'Contact Us' },
+      { to: '/login', label: 'Login' }
     ];
 
     return (
@@ -51,8 +52,8 @@
       >
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
-            <a
-              href="/"
+            <NavLink
+              to="/"
               className="group flex items-center space-x-3 transition-transform duration-300 hover:scale-105"
             >
               <div className="relative">
@@ -66,14 +67,14 @@
                   Join Our Shaadi
                 </span>
               </div>
-            </a>
+            </NavLink>
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-1">
               {navLinks.map((link, index) => (
-                <a
-                  key={link.href}
-                  href={link.href}
+                <NavLink
+                  key={link.to}
+                  to={link.to}
                   data-aos="fade-down"
                   data-aos-delay={index * 100}
                   className="relative px-4 py-2 text-gray-700 font-medium transition-all duration-300 hover:text-rose-600 group"
@@ -81,7 +82,7 @@
                   <span className="relative z-10">{link.label}</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-rose-100 to-pink-100 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300 ease-out"></div>
                   <div className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-rose-500 to-pink-500 group-hover:w-full group-hover:left-0 transition-all duration-300"></div>
-                </a>
+                </NavLink>
               ))}
               <div className="ml-6 pl-6 border-l border-gray-200" data-aos="zoom-in" data-aos-delay="400">
                 <button className="group relative overflow-hidden bg-gradient-to-r from-rose-500 via-pink-500 to-rose-600 text-white px-6 py-2.5 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
@@ -128,18 +129,19 @@
 
             <nav className="px-6 py-6 space-y-1">
               {navLinks.map((link, index) => (
-                <a
-                  key={link.href}
-                  href={link.href}
+                <NavLink
+                   key={link.to}
+                  to={link.to}
+                  onClick={() => setOpen(false)}
                   className="block px-4 py-3 text-gray-700 font-medium rounded-xl hover:text-rose-600 hover:bg-gradient-to-r hover:from-rose-50 hover:to-pink-50 transition-all duration-300"
                   style={{
                     animationDelay: `${index * 50}ms`,
                     animation: open ? 'slideInFromRight 0.3s ease-out forwards' : 'none',
                   }}
-                  onClick={() => setOpen(false)}
+                 
                 >
                   {link.label}
-                </a>
+                </NavLink>
               ))}
 
               <div className="pt-4 border-t border-gray-100">
