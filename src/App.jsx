@@ -13,6 +13,7 @@ import ConatctUs from './pages/ConatctUs';
 import NotFound from './pages/NotFound';
 import MarriageDetails from './pages/MarriageDetails';
 import Host from './pages/Host';
+import RegisterWedding from './pages/RegisterWedding';
 
 function App() {
   const location = useLocation();
@@ -34,6 +35,7 @@ function App() {
           <Route path="/*" element={<NotFound />} />
           <Route path="/details" element={<MarriageDetails/>}/>
           <Route path="/beacomeahost" element={<Host/>}/>
+          <Route path="/registerWedding" element={<RegisterWedding/>}/>
         </Routes>
       </main>
       <Footer />
