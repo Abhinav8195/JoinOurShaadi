@@ -36,7 +36,7 @@ const ConatctUs = () => {
   };
 
   return (
-    <section className="bg-gradient-to-br from-[#FFE4EC] via-[#FFF0EA] to-[#FFE6E6] min-h-screen px-6 py-20 sm:px-10 md:px-24 ">
+    <section className="bg-gradient-to-br from-[#FFE4EC] via-[#FFF0EA] to-[#FFE6E6] min-h-screen px-6 py-40 sm:px-10 md:px-24 ">
       {/* Header */}
       <div className="text-center mb-16" data-aos="fade-up">
         <h1 className="text-4xl md:text-5xl font-bold text-[#AD4379] mb-4">Get in Touch 💌</h1>
