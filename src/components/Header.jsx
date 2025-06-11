@@ -3,14 +3,15 @@ import { Menu, X, Heart } from 'lucide-react';
 import logo from '../assets/arch.png';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useUser, SignInButton, UserButton } from '@clerk/clerk-react';
+
 
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { user, isSignedIn } = useUser();
-
+  const navigate =useNavigate();
   console.log(user)
 
   useEffect(() => {
@@ -102,7 +103,7 @@ export default function Header() {
 
             {/* Plan Button */}
             <div className="ml-6 pl-6 border-l border-gray-200" data-aos="zoom-in" data-aos-delay="400">
-              <button className="group relative overflow-hidden bg-gradient-to-r from-rose-500 via-pink-500 to-rose-600 text-white px-6 py-2.5 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <button onClick={()=>navigate('/beacomeahost')} className="group relative overflow-hidden bg-gradient-to-r from-rose-500 via-pink-500 to-rose-600 text-white px-6 py-2.5 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
                 <div className="absolute inset-0 bg-gradient-to-r from-rose-600 via-pink-600 to-rose-700 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
                 <span className="relative flex items-center space-x-2">
                   <span>Plan a Gathering</span>
@@ -182,7 +183,7 @@ export default function Header() {
             )}
 
             <div className="pt-4 border-t border-gray-100">
-              <button
+              <button onClick={()=>navigate('/beacomeahost')}
                 className="w-full bg-gradient-to-r from-rose-500 via-pink-500 to-rose-600 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
                 style={{
                   animationDelay: '200ms',

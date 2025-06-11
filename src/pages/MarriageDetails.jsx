@@ -9,17 +9,17 @@ const MarriageDetails = () => {
   const wedding = state?.wedding;
   const { isSignedIn, user } = useUser();
 
-  // Modal & form state
+  
   const [showModal, setShowModal] = useState(false);
   const [showInfoStep, setShowInfoStep] = useState(false);
 
-  // Step 1
+  
   const [selectedDays, setSelectedDays] = useState([]);
   const [travellers, setTravellers] = useState(1);
   const pricePerPerson = 250;
   const total = travellers * pricePerPerson;
 
-  // Step 2
+  
    const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
