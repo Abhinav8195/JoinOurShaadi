@@ -10,6 +10,7 @@ import WeddingPage from './pages/WeddingPage';
 import FAQ from './pages/FAQ';
 import Login from './pages/Login';
 import ConatctUs from './pages/ConatctUs';
+import NotFound from './pages/NotFound';
 
 function App() {
   const location = useLocation();
@@ -28,6 +29,7 @@ function App() {
           <Route path="/faq" element={<FAQ />} />
           <Route path="/contact" element={<ConatctUs />} />
           <Route path="/login" element={<Login />} /> 
+          <Route path="/*" element={<NotFound />} />
         </Routes>
       </main>
       <Footer />
