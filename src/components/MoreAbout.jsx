@@ -5,6 +5,7 @@ import 'aos/dist/aos.css';
 
 import guestIcon from '../assets/guest.png'; 
 import wedding from '../assets/wedding.png'; 
+import { useNavigate } from 'react-router-dom';
 
 const guestFaqs = [
   {
@@ -53,6 +54,7 @@ const hostFaqs = [
 ];
 
 const MoreAbout = () => {
+   const navigate = useNavigate();
   useEffect(() => {
     AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true });
   }, []);
@@ -112,7 +114,7 @@ const MoreAbout = () => {
 
       {/* ✅ Find Out More Button */}
       <div className="mt-16 text-center" data-aos="fade-up" data-aos-delay="300">
-      <button className="group px-8 py-3 rounded-full bg-gradient-to-r from-[#AD4379] to-[#F47D7D] text-white font-semibold text-lg shadow-lg transition duration-300">
+      <button onClick={()=>navigate('/faq')} className="group px-8 py-3 rounded-full bg-gradient-to-r from-[#AD4379] to-[#F47D7D] text-white font-semibold text-lg shadow-lg transition duration-300">
                 <span className="inline-block transition-transform duration-300 group-hover:scale-90">
                     Find Out More
                 </span>
