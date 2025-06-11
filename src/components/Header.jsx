@@ -11,6 +11,8 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const { user, isSignedIn } = useUser();
 
+  console.log(user)
+
   useEffect(() => {
     AOS.init({ duration: 800, once: true, offset: 20 });
 
@@ -78,7 +80,8 @@ export default function Header() {
 
             {/* Clerk Integration */}
             {isSignedIn ? (
-              <div className="ml-4">
+              <div className="ml-4 flex items-center space-x-3">
+                <span className="text-[#747afb] font-medium">Hi, {user.firstName || "User"}</span>
                 <UserButton afterSignOutUrl="/" />
               </div>
             ) : (
@@ -158,9 +161,10 @@ export default function Header() {
 
             {/* Clerk Login / Avatar in Mobile */}
             {isSignedIn ? (
-              <div className="pt-2 flex justify-center">
-                <UserButton afterSignOutUrl="/" />
-              </div>
+              <div className="pt-2 flex items-center justify-center space-x-3">
+              <span className="text-[#747afb] font-medium">Hi, {user.firstName || "User"}</span>
+              <UserButton afterSignOutUrl="/" />
+            </div>
             ) : (
              <SignInButton mode="modal">
                 <button
