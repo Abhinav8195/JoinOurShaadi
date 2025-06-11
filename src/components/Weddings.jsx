@@ -106,12 +106,12 @@ const Weddings = ({ title, subtitle, button }) => {
       {/* CTA Button */}
       {button && (
         <div data-aos="fade-up" data-aos-delay="200" className="mt-16">
-          <button
-            onClick={() => navigate('/weddings')}
-            className="focus:outline-none bg-white border border-[#AD4379] text-[#AD4379] hover:bg-[#AD4379] hover:text-pink-400 transition-all duration-300 px-6 py-3 rounded-full font-semibold text-sm shadow hover:shadow-md"
-          >
-            See all upcoming weddings
-          </button>
+            <button
+              onClick={() => navigate('/weddings')}
+              className="focus:outline-none bg-white border border-[#AD4379] text-[#AD4379] hover:bg-[#AD4379] hover:border-pink-400 hover:text-pink-400 transition-all duration-300 px-6 py-3 rounded-full font-semibold text-sm shadow hover:shadow-md"
+            >
+              See all upcoming weddings
+            </button>
         </div>
       )}
     </section>

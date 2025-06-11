@@ -48,13 +48,8 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
+
+
   .react-datepicker {
   font-family: 'Inter', sans-serif;
   border-radius: 1rem;
@@ -103,6 +98,12 @@ button:focus-visible {
   box-shadow: none !important;
 }
 
+button:focus,
+input:focus,
+textarea:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
 
 
 @media (prefers-color-scheme: light) {
