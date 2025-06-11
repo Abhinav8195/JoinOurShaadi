@@ -98,6 +98,10 @@ button:focus-visible {
   color: white;
   border-top: 1px solid #E05297;
 }
+.react-datepicker__close-icon:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
 
 
 
