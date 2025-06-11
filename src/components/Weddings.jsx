@@ -33,41 +33,45 @@ const Weddings = ({ title, subtitle, button }) => {
   }, [selectedDate]);
 
   return (
-    <section className="bg-gradient-to-br from-[#FFE4EC] via-[#FFF0EA] to-[#FFE6E6] py-20 px-4 sm:px-10 md:px-24 text-center">
+    <section
+      className={`bg-gradient-to-br from-[#FFE4EC] via-[#FFF0EA] to-[#FFE6E6] ${
+        filteredWeddings.length === 0 ? 'py-12' : 'py-20'
+      } px-4 sm:px-10 md:px-24 text-center`}
+    >
       {/* Header */}
       <div data-aos="fade-up">
-        <h2 className="text-4xl md:text-5xl font-bold text-[#AD4379] mb-4">
-          {title}
-        </h2>
+        <h2 className="text-4xl md:text-5xl font-bold text-[#AD4379] mb-4">{title}</h2>
         <p className="text-lg text-gray-600">{subtitle}</p>
       </div>
 
       {/* Calendar */}
-    {!button && (
-  <div className="mt-12 flex justify-center" data-aos="fade-up">
-    <DatePicker
-  selected={selectedDate}
-  onChange={(date) => setSelectedDate(date)}
-  placeholderText="Choose a wedding date"
-  dateFormat="yyyy-MM-dd"
-  isClearable
-  calendarClassName="custom-datepicker"
-  customInput={
-    <div className="relative flex items-center px-5 py-2 pl-4 pr-10 rounded-full border border-[#AD4379] bg-white text-[#AD4379] shadow-md hover:border-[#E05297] transition duration-300 cursor-pointer">
-      <CalendarDays className="w-5 h-5 text-[#AD4379] mr-2" />
-      <span className="text-sm truncate">
-        {selectedDate ? format(selectedDate, 'dd MMM yyyy') : 'Choose a wedding date'}
-      </span>
-    </div>
-  }
-/>
-
-  </div>
-)}
-
+      {!button && (
+        <div className="mt-12 flex justify-center" data-aos="fade-up">
+          <DatePicker
+            selected={selectedDate}
+            onChange={(date) => setSelectedDate(date)}
+            placeholderText="Choose a wedding date"
+            dateFormat="yyyy-MM-dd"
+            isClearable
+            calendarClassName="custom-datepicker"
+            customInput={
+              <div className="relative flex items-center px-5 py-2 pl-4 pr-10 rounded-full border border-[#AD4379] bg-white text-[#AD4379] shadow-md hover:border-[#E05297] transition duration-300 cursor-pointer">
+                <CalendarDays className="w-5 h-5 text-[#AD4379] mr-2" />
+                <span className="text-sm truncate">
+                  {selectedDate ? format(selectedDate, 'dd MMM yyyy') : 'Choose a wedding date'}
+                </span>
+              </div>
+            }
+          />
+        </div>
+      )}
 
       {/* Cards Grid */}
-      <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div
+        className={`${
+          filteredWeddings.length === 0 ? 'mt-8 mb-40' : 'mt-16 mb-0'
+        } grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8`}
+      >
         {filteredWeddings.length > 0 ? (
           filteredWeddings.map((wedding) => (
             <div
@@ -81,9 +85,7 @@ const Weddings = ({ title, subtitle, button }) => {
                 className="w-full h-48 object-cover"
               />
               <div className="p-5 text-left">
-                <h3 className="text-xl font-semibold text-[#AD4379]">
-                  {wedding.couple}
-                </h3>
+                <h3 className="text-xl font-semibold text-[#AD4379]">{wedding.couple}</h3>
                 <p className="text-sm text-gray-600 mt-1">{wedding.location}</p>
                 <p className="text-sm text-gray-500">{wedding.date}</p>
 
@@ -95,7 +97,9 @@ const Weddings = ({ title, subtitle, button }) => {
             </div>
           ))
         ) : (
-          <p className="col-span-full text-gray-500">No weddings found for the selected date.</p>
+          <p className="col-span-full text-gray-500 text-center py-20 min-h-[200px] flex items-center justify-center">
+            No weddings found for the selected date.
+          </p>
         )}
       </div>
 
