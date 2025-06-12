@@ -207,7 +207,19 @@ const RegisterWeddingStep3 = () => {
           </button>
         </div>
 
-        <ShaadiInfo/>
+       <div className="mb-12">
+  <h3 className="text-lg font-semibold text-gray-800 mb-6">Wedding Event Details</h3>
+
+  {[...Array(days)].map((_, i) => (
+    <div key={i} className="py-8 border-t border-gray-200 first:border-0">
+      <h4 className="text-base font-semibold text-[#BF3366] mb-4">
+        Day {i + 1}
+      </h4>
+      <ShaadiInfo index={i} />
+    </div>
+  ))}
+</div>
+
 
         {/* Buttons */}
         <div className="flex justify-between">

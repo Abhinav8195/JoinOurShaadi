@@ -16,7 +16,7 @@ const CustomDateInput = React.forwardRef(({ value, onClick }, ref) => (
   </button>
 ));
 
-const ShaadiInfo = () => {
+const ShaadiInfo = ({ index }) => {
   const [date, setDate] = useState(null);
   const [time, setTime] = useState('');
   const [showTimePicker, setShowTimePicker] = useState(false);
@@ -31,6 +31,8 @@ const ShaadiInfo = () => {
   const [street, setStreet] = useState('');
   const [number, setNumber] = useState('');
   const [venueName, setVenueName] = useState('');
+
+  const [sameLocationAsDay1, setSameLocationAsDay1] = useState(true);
 
   const [events, setEvents] = useState([
     { name: '', description: '', music: null, dressCode: '' }
@@ -71,7 +73,7 @@ const ShaadiInfo = () => {
   return (
     <div className="mb-10">
       <div className="w-full bg-[#FCD6DF] text-[#BF3366] font-semibold text-lg px-4 py-2 rounded-md mb-6 shadow-sm">
-        Day 1
+        Ceremony for Day {index + 1}
       </div>
 
       {/* Date */}
@@ -117,106 +119,138 @@ const ShaadiInfo = () => {
         )}
       </div>
 
-      {/* Location */}
-      <label className="block text-base font-semibold text-gray-800 mb-2 flex items-center gap-1">
-        <MapPin className="text-[#BF3366]" size={18} /> Where will the event take place?
-      </label>
-
-      {/* Country */}
-      <label className="block mb-1 text-sm font-medium text-gray-700">Country <span className="text-red-500">*</span></label>
-      <div className="relative mb-4">
-        <div
-          onClick={() => setShowCountryList(!showCountryList)}
-          className="p-3 border border-gray-300 rounded-lg flex justify-between items-center cursor-pointer bg-white"
-        >
-          <span>{country || 'Select Country'}</span>
-          <ChevronDown size={18} className="text-gray-400" />
-        </div>
-        {showCountryList && (
-          <div className="absolute z-10 top-full mt-2 max-h-60 overflow-y-auto border border-gray-300 bg-white shadow rounded-lg w-full">
-            {countries.map((c, i) => (
-              <div
-                key={i}
-                onClick={() => {
-                  setCountry(c);
-                  setShowCountryList(false);
-                }}
-                className="px-4 py-2 hover:bg-pink-50 cursor-pointer"
-              >
-                {c}
-              </div>
-            ))}
+      {/* Toggle for Day 2/3 */}
+      {index > 0 && (
+        <div className="mb-6">
+          <label className="block text-base font-semibold text-gray-800 mb-2">
+            Will the events of this day take place at the same location as on Day 1?
+          </label>
+          <div className="flex items-center gap-4">
+            <label className="flex items-center gap-2 cursor-pointer">
+              <input
+                type="radio"
+                name={`sameLocation-${index}`}
+                checked={sameLocationAsDay1 === true}
+                onChange={() => setSameLocationAsDay1(true)}
+              />
+              Yes
+            </label>
+            <label className="flex items-center gap-2 cursor-pointer">
+              <input
+                type="radio"
+                name={`sameLocation-${index}`}
+                checked={sameLocationAsDay1 === false}
+                onChange={() => setSameLocationAsDay1(false)}
+              />
+              No
+            </label>
           </div>
-        )}
-      </div>
+        </div>
+      )}
 
-      {/* Address Fields */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-        <div>
-          <label className="block mb-1 text-sm font-medium text-gray-700">Region</label>
-          <input
-            type="text"
-            placeholder="Optional"
-            value={region}
-            onChange={(e) => setRegion(e.target.value)}
-            className="p-3 border border-gray-300 rounded-lg w-full"
-          />
-        </div>
-        <div>
-          <label className="block mb-1 text-sm font-medium text-gray-700">City <span className="text-red-500">*</span></label>
-          <input
-            type="text"
-            placeholder="City"
-            value={city}
-            onChange={(e) => setCity(e.target.value)}
-            className="p-3 border border-gray-300 rounded-lg w-full"
-          />
-        </div>
-        <div>
-          <label className="block mb-1 text-sm font-medium text-gray-700">Postal Code <span className="text-red-500">*</span></label>
-          <input
-            type="text"
-            value={postalCode}
-            onChange={(e) => setPostalCode(e.target.value)}
-            className="p-3 border border-gray-300 rounded-lg w-full"
-          />
-        </div>
-        <div>
-          <label className="block mb-1 text-sm font-medium text-gray-700">Street <span className="text-red-500">*</span></label>
-          <input
-            type="text"
-            value={street}
-            onChange={(e) => setStreet(e.target.value)}
-            className="p-3 border border-gray-300 rounded-lg w-full"
-          />
-        </div>
-        <div>
-          <label className="block mb-1 text-sm font-medium text-gray-700">Number <span className="text-red-500">*</span></label>
-          <input
-            type="text"
-            value={number}
-            onChange={(e) => setNumber(e.target.value)}
-            className="p-3 border border-gray-300 rounded-lg w-full"
-          />
-        </div>
-      </div>
+      {/* Location */}
+      {(index === 0 || sameLocationAsDay1 === false) && (
+        <>
+          <label className="block text-base font-semibold text-gray-800 mb-2 flex items-center gap-1 mt-8">
+            <MapPin className="text-[#BF3366]" size={18} /> Where will the event take place?
+          </label>
 
-      {/* Venue Name */}
-      <label className="block text-base font-semibold text-gray-800 mb-1">
-        Name of venue (optional)
-      </label>
-      <textarea
-        placeholder="e.g. Raj Mahal Banquet, near Clock Tower, Dehradun"
-        value={venueName}
-        onChange={(e) => setVenueName(e.target.value)}
-        rows={3}
-        className="w-full p-3 border border-gray-300 rounded-lg resize-none"
-      />
-      <p className="text-sm text-gray-500 mt-1">
-        You can also include nearby landmarks or directions to help travelers.
-      </p>
+          <label className="block mb-1 text-sm font-medium text-gray-700">Country <span className="text-red-500">*</span></label>
+          <div className="relative mb-4">
+            <div
+              onClick={() => setShowCountryList(!showCountryList)}
+              className="p-3 border border-gray-300 rounded-lg flex justify-between items-center cursor-pointer bg-white"
+            >
+              <span>{country || 'Select Country'}</span>
+              <ChevronDown size={18} className="text-gray-400" />
+            </div>
+            {showCountryList && (
+              <div className="absolute z-10 top-full mt-2 max-h-60 overflow-y-auto border border-gray-300 bg-white shadow rounded-lg w-full">
+                {countries.map((c, i) => (
+                  <div
+                    key={i}
+                    onClick={() => {
+                      setCountry(c);
+                      setShowCountryList(false);
+                    }}
+                    className="px-4 py-2 hover:bg-pink-50 cursor-pointer"
+                  >
+                    {c}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
 
-      {/* Event Details */}
+          {/* Address fields */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            <div>
+              <label className="block mb-1 text-sm font-medium text-gray-700">Region</label>
+              <input
+                type="text"
+                placeholder="Optional"
+                value={region}
+                onChange={(e) => setRegion(e.target.value)}
+                className="p-3 border border-gray-300 rounded-lg w-full"
+              />
+            </div>
+            <div>
+              <label className="block mb-1 text-sm font-medium text-gray-700">City <span className="text-red-500">*</span></label>
+              <input
+                type="text"
+                placeholder="City"
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
+                className="p-3 border border-gray-300 rounded-lg w-full"
+              />
+            </div>
+            <div>
+              <label className="block mb-1 text-sm font-medium text-gray-700">Postal Code <span className="text-red-500">*</span></label>
+              <input
+                type="text"
+                value={postalCode}
+                onChange={(e) => setPostalCode(e.target.value)}
+                className="p-3 border border-gray-300 rounded-lg w-full"
+              />
+            </div>
+            <div>
+              <label className="block mb-1 text-sm font-medium text-gray-700">Street <span className="text-red-500">*</span></label>
+              <input
+                type="text"
+                value={street}
+                onChange={(e) => setStreet(e.target.value)}
+                className="p-3 border border-gray-300 rounded-lg w-full"
+              />
+            </div>
+            <div>
+              <label className="block mb-1 text-sm font-medium text-gray-700">Number <span className="text-red-500">*</span></label>
+              <input
+                type="text"
+                value={number}
+                onChange={(e) => setNumber(e.target.value)}
+                className="p-3 border border-gray-300 rounded-lg w-full"
+              />
+            </div>
+          </div>
+
+          {/* Venue */}
+          <label className="block text-base font-semibold text-gray-800 mb-1">
+            Name of venue (optional)
+          </label>
+          <textarea
+            placeholder="e.g. Raj Mahal Banquet, near Clock Tower, Dehradun"
+            value={venueName}
+            onChange={(e) => setVenueName(e.target.value)}
+            rows={3}
+            className="w-full p-3 border border-gray-300 rounded-lg resize-none"
+          />
+          <p className="text-sm text-gray-500 mt-1">
+            You can also include nearby landmarks or directions to help travelers.
+          </p>
+        </>
+      )}
+
+      {/* Events */}
       <div className="mt-10">
         <h3 className="text-lg font-semibold text-gray-800 mb-4">
           Please give us some additional details about the event(s) of this day
@@ -258,31 +292,19 @@ const ShaadiInfo = () => {
               className="w-full p-3 border border-gray-300 rounded-lg mb-3 resize-none"
             />
 
-        <label className="block font-medium mb-2">Will there be music and/or dancing?</label>
-<div className="mb-4 flex items-center gap-4">
-  <span className={`text-sm font-medium ${event.music === true ? 'text-[#BF3366]' : 'text-gray-500'}`}>
-    Yes
-  </span>
-  
-  <div
-    onClick={() => handleEventChange(index, 'music', !event.music)}
-    className={`relative w-14 h-8 flex items-center rounded-full p-1 cursor-pointer transition-colors duration-300 ${
-      event.music ? 'bg-[#BF3366]' : 'bg-gray-300'
-    }`}
-  >
-    <div
-      className={`bg-white w-6 h-6 rounded-full shadow-md transform transition-transform duration-300 ${
-        event.music ? 'translate-x-6' : 'translate-x-0'
-      }`}
-    />
-  </div>
-
-  <span className={`text-sm font-medium ${event.music === false ? 'text-[#BF3366]' : 'text-gray-500'}`}>
-    No
-  </span>
-</div>
-
-
+            <label className="block font-medium mb-2">Will there be music and/or dancing?</label>
+            <div className="mb-4 flex items-center gap-4">
+              <span className={`text-sm font-medium ${event.music === true ? 'text-[#BF3366]' : 'text-gray-500'}`}>Yes</span>
+              <div
+                onClick={() => handleEventChange(index, 'music', !event.music)}
+                className={`relative w-14 h-8 flex items-center rounded-full p-1 cursor-pointer transition-colors duration-300 ${event.music ? 'bg-[#BF3366]' : 'bg-gray-300'}`}
+              >
+                <div
+                  className={`bg-white w-6 h-6 rounded-full shadow-md transform transition-transform duration-300 ${event.music ? 'translate-x-6' : 'translate-x-0'}`}
+                />
+              </div>
+              <span className={`text-sm font-medium ${event.music === false ? 'text-[#BF3366]' : 'text-gray-500'}`}>No</span>
+            </div>
 
             <label className="block text-sm font-medium mb-1">Dress Code</label>
             <input
