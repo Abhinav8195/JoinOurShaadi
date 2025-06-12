@@ -3,6 +3,7 @@ import { Sparkles } from 'lucide-react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useUser } from '@clerk/clerk-react';
+import { useNavigate } from 'react-router-dom';
 
 const RegisterWedding = () => {
   const { user } = useUser();
@@ -23,6 +24,8 @@ const RegisterWedding = () => {
     groomEmail: '',
     groomPhone: ''
   });
+
+  const navigate=useNavigate();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -76,7 +79,8 @@ const RegisterWedding = () => {
 
     const handleNext = () => {
     if (validate()) {
-      alert('Proceed to next step');
+        localStorage.setItem('weddingStep1', JSON.stringify({ formData, role }));
+         navigate('/register/step2');
     }
   };
 
