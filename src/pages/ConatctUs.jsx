@@ -128,7 +128,7 @@ const ConatctUs = () => {
             className="w-20 h-20 rounded-full object-cover border-2 border-[#AD4379]"
           />
           <div>
-            <p className="text-xl font-semibold text-[#AD4379]">Ankita</p>
+            <p className="text-xl font-semibold text-[#AD4379]">Abhinav</p>
             <p className="text-gray-600 text-sm">Founder, Ambala, India</p>
           </div>
         </div>
