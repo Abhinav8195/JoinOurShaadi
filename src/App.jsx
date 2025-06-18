@@ -16,6 +16,8 @@ import Host from './pages/Host';
 import RegisterWedding from './pages/RegisterWedding';
 import RegisterWeddingStep2 from './pages/RegisterWeddingStep2 ';
 import RegisterWeddingStep3 from './pages/RegisterWeddingStep3';
+import RegisterWeddingStep4 from './pages/RegisterWeddingStep4';
+import RegisterWeddingStep5 from './pages/RegisterWeddingStep5';
 
 function App() {
   const location = useLocation();
@@ -40,6 +42,8 @@ function App() {
           <Route path="/registerWedding" element={<RegisterWedding/>}/>
           <Route path='/register/step2' element={<RegisterWeddingStep2/>  }/>
           <Route path='/register/step3' element={<RegisterWeddingStep3/>  }/>
+          <Route path='/register/step4' element={<RegisterWeddingStep4/>  }/>
+          <Route path='/register/step5' element={<RegisterWeddingStep5/>  }/>
         </Routes>
       </main>
       <Footer />

@@ -43,6 +43,7 @@ const RegisterWeddingStep3 = () => {
   useEffect(() => {
     const saved = localStorage.getItem('weddingStep2');
     if (!saved) navigate('/register/step2');
+        window.scrollTo(0, 0);
   }, [navigate]);
 
   const validate = () => {

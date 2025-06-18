@@ -20,6 +20,7 @@ const RegisterWeddingStep2 = () => {
   useEffect(() => {
     const saved = localStorage.getItem('weddingStep1');
     if (saved) setData(JSON.parse(saved));
+        window.scrollTo(0, 0);
   }, []);
 
   const handleImageChange = (e) => {
